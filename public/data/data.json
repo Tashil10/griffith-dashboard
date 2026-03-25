@@ -1,23 +1,66 @@
 {
-  "totalCost": 24.08,
-  "totalTokens": "79.5M",
-  "totalSessions": 701,
+  "totalCost": 38.89,
+  "totalTokens": "121.0M",
+  "totalSessions": 1191,
   "modelBreakdown": {
+    "google/gemini-2.0-flash-lite-001": {
+      "count": 37,
+      "cost": 0.0924279,
+      "tokens": 1192484
+    },
     "Griffith": {
-      "count": 701,
-      "cost": 24.078589399999995,
-      "tokens": 79480689,
-      "pricing": {
-        "inputCost": 8.000000000000001e-7,
-        "outputCost": 0.0000024
-      }
+      "count": 987,
+      "cost": 31.911015100000014,
+      "tokens": 105754156
+    },
+    "Femto": {
+      "count": 110,
+      "cost": 6.759772500000001,
+      "tokens": 6697690
+    },
+    "z-ai/glm-4.7-flash": {
+      "count": 57,
+      "cost": 0.12556780128902478,
+      "tokens": 7372789
     }
   },
   "dailyTrend": {
     "2026-03-18": {
-      "total": 0.03295019999999999,
+      "total": 0.44738240128902507,
       "byModel": {
-        "Griffith": 0.03295019999999999
+        "google/gemini-2.0-flash-lite-001": 0.0924279,
+        "Griffith": 0.22938669999999997,
+        "z-ai/glm-4.7-flash": 0.12556780128902478
+      }
+    },
+    "2026-03-20": {
+      "total": 3.4855356,
+      "byModel": {
+        "Griffith": 3.4855356
+      }
+    },
+    "2026-03-17": {
+      "total": 6.759772500000001,
+      "byModel": {
+        "Femto": 6.759772500000001
+      }
+    },
+    "2026-03-24": {
+      "total": 0.021730600000000003,
+      "byModel": {
+        "Griffith": 0.021730600000000003
+      }
+    },
+    "2026-03-25": {
+      "total": 9.055094199999996,
+      "byModel": {
+        "Griffith": 9.055094199999996
+      }
+    },
+    "2026-03-23": {
+      "total": 16.072238399999986,
+      "byModel": {
+        "Griffith": 16.072238399999986
       }
     },
     "2026-03-19": {
@@ -26,32 +69,260 @@
         "Griffith": 2.447287899999999
       }
     },
-    "2026-03-20": {
-      "total": 2.6916809999999995,
-      "byModel": {
-        "Griffith": 2.6916809999999995
-      }
-    },
     "2026-03-21": {
       "total": 0.5997417,
       "byModel": {
         "Griffith": 0.5997417
       }
-    },
-    "2026-03-23": {
-      "total": 9.747012799999993,
-      "byModel": {
-        "Griffith": 9.747012799999993
-      }
-    },
-    "2026-03-25": {
-      "total": 8.559915799999997,
-      "byModel": {
-        "Griffith": 8.559915799999997
-      }
     }
   },
   "recentSessions": [
+    {
+      "date": "2026-03-18T17:14",
+      "model": "Griffith",
+      "tokens": 12649,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-18T13:28",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 52706,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:28",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 52607,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:26",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 50731,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:26",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 50479,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:25",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 49014,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:25",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 47333,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:25",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 46719,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:25",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 45678,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:25",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 45555,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:25",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 45433,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:25",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 44409,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:24",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 44267,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:24",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 43705,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:24",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 43193,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:24",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 41475,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T13:24",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 40550,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T12:38",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 39870,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T12:38",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 39597,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T12:37",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 39302,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T11:52",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 38623,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T11:12",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 38356,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T11:12",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 37942,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T11:10",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 37530,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T11:08",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 35514,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T11:07",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 33912,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T11:03",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 9187,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T11:02",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 8733,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-18T10:32",
+      "model": "google/gemini-2.0-flash-lite-001",
+      "tokens": 8410,
+      "cost": "0.00"
+    },
+    {
+      "date": "2026-03-25T14:53",
+      "model": "Griffith",
+      "tokens": 100069,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T14:53",
+      "model": "Griffith",
+      "tokens": 97913,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T14:53",
+      "model": "Griffith",
+      "tokens": 95866,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:52",
+      "model": "Griffith",
+      "tokens": 94505,
+      "cost": "0.08"
+    },
+    {
+      "date": "2026-03-25T14:52",
+      "model": "Griffith",
+      "tokens": 95074,
+      "cost": "0.09"
+    },
+    {
+      "date": "2026-03-25T14:47",
+      "model": "Griffith",
+      "tokens": 93702,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:47",
+      "model": "Griffith",
+      "tokens": 93450,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:47",
+      "model": "Griffith",
+      "tokens": 93282,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T14:47",
+      "model": "Griffith",
+      "tokens": 91882,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:47",
+      "model": "Griffith",
+      "tokens": 91605,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:46",
+      "model": "Griffith",
+      "tokens": 91238,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T14:46",
+      "model": "Griffith",
+      "tokens": 88618,
+      "cost": "0.08"
+    },
     {
       "date": "2026-03-25T14:46",
       "model": "Griffith",
@@ -171,24 +442,258 @@
       "model": "Griffith",
       "tokens": 69939,
       "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:30",
+      "model": "Griffith",
+      "tokens": 68342,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:30",
+      "model": "Griffith",
+      "tokens": 66023,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:30",
+      "model": "Griffith",
+      "tokens": 65797,
+      "cost": "0.06"
+    },
+    {
+      "date": "2026-03-25T14:30",
+      "model": "Griffith",
+      "tokens": 65369,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:28",
+      "model": "Griffith",
+      "tokens": 65052,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:27",
+      "model": "Griffith",
+      "tokens": 64830,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:27",
+      "model": "Griffith",
+      "tokens": 64435,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:23",
+      "model": "Griffith",
+      "tokens": 64041,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:22",
+      "model": "Griffith",
+      "tokens": 64229,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:20",
+      "model": "Griffith",
+      "tokens": 63278,
+      "cost": "0.05"
+    },
+    {
+      "date": "2026-03-25T14:20",
+      "model": "Griffith",
+      "tokens": 63368,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:19",
+      "model": "Griffith",
+      "tokens": 61502,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:14",
+      "model": "Griffith",
+      "tokens": 60708,
+      "cost": "0.05"
+    },
+    {
+      "date": "2026-03-25T14:14",
+      "model": "Griffith",
+      "tokens": 61270,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:11",
+      "model": "Griffith",
+      "tokens": 60513,
+      "cost": "0.06"
+    },
+    {
+      "date": "2026-03-25T14:04",
+      "model": "Griffith",
+      "tokens": 59768,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:01",
+      "model": "Griffith",
+      "tokens": 58791,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:01",
+      "model": "Griffith",
+      "tokens": 59026,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:01",
+      "model": "Griffith",
+      "tokens": 57073,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T13:58",
+      "model": "Griffith",
+      "tokens": 56380,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T13:58",
+      "model": "Griffith",
+      "tokens": 55781,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T13:58",
+      "model": "Griffith",
+      "tokens": 55307,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T13:57",
+      "model": "Griffith",
+      "tokens": 52451,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T13:57",
+      "model": "Griffith",
+      "tokens": 51468,
+      "cost": "0.04"
+    },
+    {
+      "date": "2026-03-25T13:57",
+      "model": "Griffith",
+      "tokens": 48263,
+      "cost": "0.04"
+    },
+    {
+      "date": "2026-03-25T13:57",
+      "model": "Griffith",
+      "tokens": 47485,
+      "cost": "0.04"
+    },
+    {
+      "date": "2026-03-25T13:57",
+      "model": "Griffith",
+      "tokens": 48231,
+      "cost": "0.05"
+    },
+    {
+      "date": "2026-03-25T13:54",
+      "model": "Griffith",
+      "tokens": 180069,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T13:54",
+      "model": "Griffith",
+      "tokens": 180066,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T13:54",
+      "model": "Griffith",
+      "tokens": 179519,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T13:53",
+      "model": "Griffith",
+      "tokens": 179308,
+      "cost": "0.03"
+    },
+    {
+      "date": "2026-03-25T13:53",
+      "model": "Griffith",
+      "tokens": 178074,
+      "cost": "0.03"
+    },
+    {
+      "date": "2026-03-25T13:50",
+      "model": "Griffith",
+      "tokens": 177402,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T13:50",
+      "model": "Griffith",
+      "tokens": 177137,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T13:49",
+      "model": "Griffith",
+      "tokens": 176602,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T13:49",
+      "model": "Griffith",
+      "tokens": 176345,
+      "cost": "0.04"
+    },
+    {
+      "date": "2026-03-25T13:49",
+      "model": "Griffith",
+      "tokens": 173163,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T13:49",
+      "model": "Griffith",
+      "tokens": 171972,
+      "cost": "0.17"
+    },
+    {
+      "date": "2026-03-25T13:49",
+      "model": "Griffith",
+      "tokens": 171092,
+      "cost": "0.17"
     }
   ],
   "modelDistribution": [
     {
       "name": "Griffith",
-      "value": 100,
-      "count": 701,
-      "cost": 24.08,
-      "tokens": 79480689,
+      "value": 83,
+      "count": 987,
+      "cost": 31.91,
+      "tokens": 105754156,
       "costPerToken": "0.000000"
     },
     {
       "name": "Femto",
-      "value": 0,
-      "count": 0,
-      "cost": 0,
-      "tokens": 0,
-      "costPerToken": "0"
+      "value": 9,
+      "count": 110,
+      "cost": 6.76,
+      "tokens": 6697690,
+      "costPerToken": "0.000001"
     },
     {
       "name": "Godhand",
@@ -201,8 +706,12 @@
   ],
   "costTrendData": [
     {
+      "date": "Mar 17",
+      "cost": 6.76
+    },
+    {
       "date": "Mar 18",
-      "cost": 0.03
+      "cost": 0.45
     },
     {
       "date": "Mar 19",
@@ -210,7 +719,7 @@
     },
     {
       "date": "Mar 20",
-      "cost": 2.69
+      "cost": 3.49
     },
     {
       "date": "Mar 21",
@@ -218,11 +727,15 @@
     },
     {
       "date": "Mar 23",
-      "cost": 9.75
+      "cost": 16.07
+    },
+    {
+      "date": "Mar 24",
+      "cost": 0.02
     },
     {
       "date": "Mar 25",
-      "cost": 8.56
+      "cost": 9.06
     }
   ]
 }
