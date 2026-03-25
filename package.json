@@ -4,9 +4,8 @@
   "description": "Griffith model usage and cost analytics dashboard",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
-    "export": "next build && next export"
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "next": "^14.0.0",
