@@ -12,7 +12,7 @@ export default function Models() {
       full: 'Claude Haiku 4.5',
       desc: 'Fast, lightweight model perfect for quick tasks, summarization, and simple reasoning. Best for high-volume, low-complexity work.',
       features: ['Fastest response times', 'Lowest cost', 'Good for summaries & QA', '~4K token limit'],
-      image: '/images/thumb_d9-griffith-main-blue-eye_256.jpg'
+      image: '/images/thumb_f8-griffith-sketch_256.jpg'
     },
     Femto: {
       full: 'Claude Sonnet 4.6',
