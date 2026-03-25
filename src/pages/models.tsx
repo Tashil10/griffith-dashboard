@@ -11,17 +11,20 @@ export default function Models() {
     Griffith: {
       full: 'Claude Haiku 4.5',
       desc: 'Fast, lightweight model perfect for quick tasks, summarization, and simple reasoning. Best for high-volume, low-complexity work.',
-      features: ['Fastest response times', 'Lowest cost', 'Good for summaries & QA', '~4K token limit']
+      features: ['Fastest response times', 'Lowest cost', 'Good for summaries & QA', '~4K token limit'],
+      image: '/images/thumb_d9-griffith-main-blue-eye_256.jpg'
     },
     Femto: {
       full: 'Claude Sonnet 4.6',
       desc: 'Balanced model with strong reasoning and coding abilities. Your go-to for general-purpose AI tasks, code generation, and detailed analysis.',
-      features: ['Best value/performance', 'Excellent at coding', 'Strong reasoning', 'Handles complex tasks']
+      features: ['Best value/performance', 'Excellent at coding', 'Strong reasoning', 'Handles complex tasks'],
+      image: '/images/thumb_dd-femto-winged_256.jpg'
     },
     Godhand: {
       full: 'Claude Opus 4.6',
       desc: 'Premium reasoning model for the most challenging tasks. Use for complex problem-solving, research, and nuanced analysis requiring deep thinking.',
-      features: ['Highest reasoning capacity', 'Best quality output', 'Handles very long context', 'Premium pricing']
+      features: ['Highest reasoning capacity', 'Best quality output', 'Handles very long context', 'Premium pricing'],
+      image: '/images/thumb_ea-godhand-cosmic_256.jpg'
     }
   }
 
@@ -55,6 +58,14 @@ export default function Models() {
               const details = modelDetails[model.name]
               return (
                 <div key={model.name} className="glass p-6 rounded-2xl flex flex-col">
+                  <div className="flex justify-center mb-6">
+                    <img 
+                      src={details?.image} 
+                      alt={model.name}
+                      className="w-48 h-48 rounded-lg object-cover shadow-lg border border-gray-900"
+                    />
+                  </div>
+
                   <div className="h-1 mb-6 bg-gradient-to-r from-gray-700 to-transparent" />
                   <h3 className="text-2xl font-bold mb-1">{model.name}</h3>
                   <p className="text-gray-400 text-sm mb-4">{details?.full}</p>
