@@ -1,4 +1,4 @@
-export default function StatCard({ label, value, unit }) {
+export default function StatCard({ label, value, unit = '' }) {
   return (
     <div className="glass p-6 rounded-2xl">
       <p className="text-gray-400 text-sm mb-2">{label}</p>
