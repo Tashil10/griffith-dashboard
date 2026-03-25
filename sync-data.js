@@ -24,6 +24,12 @@ async function parseSessionData() {
     'meta-llama/llama-3.3-70b-instruct:free': 'Llama'
   };
 
+  const modelPricing = {
+    'Griffith': { inputCost: 0.80 / 1000000, outputCost: 2.40 / 1000000 },
+    'Femto': { inputCost: 3.00 / 1000000, outputCost: 15.00 / 1000000 },
+    'Godhand': { inputCost: 15.00 / 1000000, outputCost: 75.00 / 1000000 }
+  };
+
   try {
     const fileStream = fs.createReadStream(SESSION_FILE);
     const rl = readline.createInterface({
@@ -47,16 +53,20 @@ async function parseSessionData() {
           
           const modelName = modelColors[model] || model;
           if (!stats.modelBreakdown[modelName]) {
-            stats.modelBreakdown[modelName] = { count: 0, cost: 0, tokens: 0 };
+            stats.modelBreakdown[modelName] = { count: 0, cost: 0, tokens: 0, pricing: modelPricing[modelName] || { inputCost: 0, outputCost: 0 } };
           }
           stats.modelBreakdown[modelName].count += 1;
           stats.modelBreakdown[modelName].cost += usage.cost.total || 0;
           stats.modelBreakdown[modelName].tokens += usage.totalTokens || 0;
           
           if (!stats.dailyTrend[dateKey]) {
-            stats.dailyTrend[dateKey] = 0;
+            stats.dailyTrend[dateKey] = { total: 0, byModel: {} };
           }
-          stats.dailyTrend[dateKey] += usage.cost.total || 0;
+          stats.dailyTrend[dateKey].total += usage.cost.total || 0;
+          if (!stats.dailyTrend[dateKey].byModel[modelName]) {
+            stats.dailyTrend[dateKey].byModel[modelName] = 0;
+          }
+          stats.dailyTrend[dateKey].byModel[modelName] += usage.cost.total || 0;
           
           stats.recentSessions.push({
             date: timestamp.toISOString().slice(0, 16),
@@ -74,20 +84,37 @@ async function parseSessionData() {
 
   stats.recentSessions = stats.recentSessions.slice(-20).reverse();
   stats.totalCost = parseFloat(stats.totalCost.toFixed(2));
-  stats.totalTokens = Math.round(stats.totalTokens / 1000) + 'K';
+  
+  // Fix total tokens - format properly
+  const totalTokensNum = stats.totalTokens;
+  if (totalTokensNum >= 1000000) {
+    stats.totalTokens = (totalTokensNum / 1000000).toFixed(1) + 'M';
+  } else if (totalTokensNum >= 1000) {
+    stats.totalTokens = (totalTokensNum / 1000).toFixed(0) + 'K';
+  } else {
+    stats.totalTokens = totalTokensNum.toString();
+  }
   
   const totalSessions = Object.values(stats.modelBreakdown).reduce((sum, m) => sum + m.count, 0);
-  stats.modelDistribution = Object.entries(stats.modelBreakdown).map(([name, data]) => ({
-    name,
-    value: Math.round((data.count / totalSessions) * 100),
-    count: data.count,
-    cost: parseFloat(data.cost.toFixed(2))
-  }));
+  
+  // Include all models even if unused
+  const allModels = ['Griffith', 'Femto', 'Godhand'];
+  stats.modelDistribution = allModels.map(name => {
+    const data = stats.modelBreakdown[name] || { count: 0, cost: 0, tokens: 0, pricing: modelPricing[name] };
+    return {
+      name,
+      value: totalSessions > 0 ? Math.round((data.count / totalSessions) * 100) : 0,
+      count: data.count,
+      cost: parseFloat(data.cost.toFixed(2)),
+      tokens: data.tokens,
+      costPerToken: data.tokens > 0 ? (data.cost / data.tokens).toFixed(6) : '0'
+    };
+  });
 
   const sortedDates = Object.keys(stats.dailyTrend).sort().slice(-30);
   stats.costTrendData = sortedDates.map(date => ({
     date: new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-    cost: parseFloat(stats.dailyTrend[date].toFixed(2))
+    cost: parseFloat(stats.dailyTrend[date].total.toFixed(2))
   }));
 
   return stats;
@@ -114,6 +141,7 @@ async function main() {
   console.log(`   Cost: $${data.totalCost}`);
   console.log(`   Tokens: ${data.totalTokens}`);
   console.log(`   Sessions: ${data.totalSessions}`);
+  console.log(`   Models: ${data.modelDistribution.map(m => `${m.name} (${m.count})`).join(', ')}`);
 }
 
 main().catch(console.error);

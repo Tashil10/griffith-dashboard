@@ -1,23 +1,147 @@
 {
-  "totalCost": 23.66,
-  "totalTokens": "78268K",
-  "totalSessions": 686,
+  "totalCost": 24.08,
+  "totalTokens": "79.5M",
+  "totalSessions": 701,
   "modelBreakdown": {
     "Griffith": {
-      "count": 686,
-      "cost": 23.6647867,
-      "tokens": 78267608
+      "count": 701,
+      "cost": 24.078589399999995,
+      "tokens": 79480689,
+      "pricing": {
+        "inputCost": 8.000000000000001e-7,
+        "outputCost": 0.0000024
+      }
     }
   },
   "dailyTrend": {
-    "2026-03-18": 0.03295019999999999,
-    "2026-03-19": 2.447287899999999,
-    "2026-03-20": 2.6916809999999995,
-    "2026-03-21": 0.5997417,
-    "2026-03-23": 9.747012799999993,
-    "2026-03-25": 8.146113099999999
+    "2026-03-18": {
+      "total": 0.03295019999999999,
+      "byModel": {
+        "Griffith": 0.03295019999999999
+      }
+    },
+    "2026-03-19": {
+      "total": 2.447287899999999,
+      "byModel": {
+        "Griffith": 2.447287899999999
+      }
+    },
+    "2026-03-20": {
+      "total": 2.6916809999999995,
+      "byModel": {
+        "Griffith": 2.6916809999999995
+      }
+    },
+    "2026-03-21": {
+      "total": 0.5997417,
+      "byModel": {
+        "Griffith": 0.5997417
+      }
+    },
+    "2026-03-23": {
+      "total": 9.747012799999993,
+      "byModel": {
+        "Griffith": 9.747012799999993
+      }
+    },
+    "2026-03-25": {
+      "total": 8.559915799999997,
+      "byModel": {
+        "Griffith": 8.559915799999997
+      }
+    }
   },
   "recentSessions": [
+    {
+      "date": "2026-03-25T14:46",
+      "model": "Griffith",
+      "tokens": 88465,
+      "cost": "0.10"
+    },
+    {
+      "date": "2026-03-25T14:40",
+      "model": "Griffith",
+      "tokens": 85672,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:40",
+      "model": "Griffith",
+      "tokens": 85317,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:40",
+      "model": "Griffith",
+      "tokens": 84993,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:40",
+      "model": "Griffith",
+      "tokens": 84594,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T14:40",
+      "model": "Griffith",
+      "tokens": 83360,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T14:40",
+      "model": "Griffith",
+      "tokens": 81931,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T14:39",
+      "model": "Griffith",
+      "tokens": 79805,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:39",
+      "model": "Griffith",
+      "tokens": 79078,
+      "cost": "0.07"
+    },
+    {
+      "date": "2026-03-25T14:39",
+      "model": "Griffith",
+      "tokens": 79039,
+      "cost": "0.08"
+    },
+    {
+      "date": "2026-03-25T14:33",
+      "model": "Griffith",
+      "tokens": 77103,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:33",
+      "model": "Griffith",
+      "tokens": 76885,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:33",
+      "model": "Griffith",
+      "tokens": 76646,
+      "cost": "0.01"
+    },
+    {
+      "date": "2026-03-25T14:33",
+      "model": "Griffith",
+      "tokens": 76351,
+      "cost": "0.02"
+    },
+    {
+      "date": "2026-03-25T14:33",
+      "model": "Griffith",
+      "tokens": 73842,
+      "cost": "0.01"
+    },
     {
       "date": "2026-03-25T14:33",
       "model": "Griffith",
@@ -47,104 +171,32 @@
       "model": "Griffith",
       "tokens": 69939,
       "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:30",
-      "model": "Griffith",
-      "tokens": 68342,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:30",
-      "model": "Griffith",
-      "tokens": 66023,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:30",
-      "model": "Griffith",
-      "tokens": 65797,
-      "cost": "0.06"
-    },
-    {
-      "date": "2026-03-25T14:30",
-      "model": "Griffith",
-      "tokens": 65369,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:28",
-      "model": "Griffith",
-      "tokens": 65052,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:27",
-      "model": "Griffith",
-      "tokens": 64830,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:27",
-      "model": "Griffith",
-      "tokens": 64435,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:23",
-      "model": "Griffith",
-      "tokens": 64041,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:22",
-      "model": "Griffith",
-      "tokens": 64229,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:20",
-      "model": "Griffith",
-      "tokens": 63278,
-      "cost": "0.05"
-    },
-    {
-      "date": "2026-03-25T14:20",
-      "model": "Griffith",
-      "tokens": 63368,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:19",
-      "model": "Griffith",
-      "tokens": 61502,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:14",
-      "model": "Griffith",
-      "tokens": 60708,
-      "cost": "0.05"
-    },
-    {
-      "date": "2026-03-25T14:14",
-      "model": "Griffith",
-      "tokens": 61270,
-      "cost": "0.01"
-    },
-    {
-      "date": "2026-03-25T14:11",
-      "model": "Griffith",
-      "tokens": 60513,
-      "cost": "0.06"
     }
   ],
   "modelDistribution": [
     {
       "name": "Griffith",
       "value": 100,
-      "count": 686,
-      "cost": 23.66
+      "count": 701,
+      "cost": 24.08,
+      "tokens": 79480689,
+      "costPerToken": "0.000000"
+    },
+    {
+      "name": "Femto",
+      "value": 0,
+      "count": 0,
+      "cost": 0,
+      "tokens": 0,
+      "costPerToken": "0"
+    },
+    {
+      "name": "Godhand",
+      "value": 0,
+      "count": 0,
+      "cost": 0,
+      "tokens": 0,
+      "costPerToken": "0"
     }
   ],
   "costTrendData": [
@@ -170,7 +222,7 @@
     },
     {
       "date": "Mar 25",
-      "cost": 8.15
+      "cost": 8.56
     }
   ]
 }

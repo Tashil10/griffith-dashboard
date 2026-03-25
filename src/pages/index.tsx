@@ -5,6 +5,7 @@ import StatCard from '@/components/StatCard'
 import SessionModal from '@/components/SessionModal'
 import { useData } from '@/hooks/useData'
 import { useCurrency } from '@/hooks/useCurrency'
+import { useTimePeriod } from '@/hooks/useTimePeriod'
 import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 const COLORS = ['#000000', '#404040', '#808080']
@@ -12,7 +13,10 @@ const COLORS = ['#000000', '#404040', '#808080']
 export default function Home() {
   const { data, loading } = useData()
   const { symbol, convert } = useCurrency()
+  const { period, setPeriod, filtered } = useTimePeriod(data)
   const [showModal, setShowModal] = useState(false)
+
+  const displayData = filtered || data
 
   if (loading) {
     return (
@@ -26,7 +30,7 @@ export default function Home() {
     )
   }
 
-  if (!data) {
+  if (!displayData) {
     return (
       <>
         <Head><title>Griffith Dashboard</title></Head>
@@ -51,15 +55,36 @@ export default function Home() {
             </p>
           </div>
 
+          <div className="mb-8 flex gap-2 flex-wrap">
+            {[
+              { key: 'day', label: 'Day' },
+              { key: 'week', label: 'Week' },
+              { key: 'month', label: 'Month' },
+              { key: 'all', label: 'All Time' }
+            ].map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => setPeriod(key)}
+                className={`px-4 py-2 rounded-lg transition font-medium ${
+                  period === key
+                    ? 'bg-gray-700 text-white'
+                    : 'bg-gray-900 text-gray-400 hover:text-white'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <StatCard label="Total Cost" value={`${symbol}${convert(data.totalCost)}`} />
-            <StatCard label="Total Tokens" value={data.totalTokens} />
-            <StatCard label="Sessions" value={data.totalSessions} />
+            <StatCard label="Total Cost" value={`${symbol}${convert(parseFloat(displayData.totalCost))}`} />
+            <StatCard label="Total Tokens" value={displayData.totalTokens > 1000000 ? (displayData.totalTokens / 1000000).toFixed(1) + 'M' : displayData.totalTokens > 1000 ? (displayData.totalTokens / 1000).toFixed(0) + 'K' : displayData.totalTokens} />
+            <StatCard label="Sessions" value={displayData.totalSessions} />
             <StatCard label="Primary Model" value="Griffith" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-            {data.modelDistribution && data.modelDistribution.length > 0 && (
+            {displayData.modelDistribution && displayData.modelDistribution.length > 0 && (
               <div className="glass p-8 rounded-2xl">
                 <h3 className="text-lg font-semibold mb-2">Model Distribution</h3>
                 <p className="text-gray-400 text-sm mb-6">
@@ -67,40 +92,56 @@ export default function Home() {
                 </p>
                 <ResponsiveContainer width="100%" height={250}>
                   <PieChart>
-                    <Pie data={data.modelDistribution} cx="50%" cy="50%" outerRadius={80} fill="#8884d8" dataKey="value">
-                      {data.modelDistribution.map((e, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
+                    <Pie data={displayData.modelDistribution} cx="50%" cy="50%" outerRadius={80} fill="#8884d8" dataKey="value">
+                      {displayData.modelDistribution.map((e, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                     </Pie>
                   </PieChart>
                 </ResponsiveContainer>
               </div>
             )}
 
-            {data.costTrendData && data.costTrendData.length > 0 && (
+            {displayData.modelDistribution && (
               <div className="glass p-8 rounded-2xl">
-                <h3 className="text-lg font-semibold mb-2">Cost Trend (Last 30 Days)</h3>
-                <p className="text-gray-400 text-sm mb-6">
-                  Daily cost breakdown showing how your spending has changed over the past month. Spikes indicate days with higher token usage or more expensive model calls. Use this to identify usage patterns and plan your budget accordingly.
-                </p>
-                <ResponsiveContainer width="100%" height={250}>
-                  <LineChart data={data.costTrendData}>
-                    <CartesianGrid stroke="rgba(255,255,255,0.05)" />
-                    <XAxis stroke="rgba(255,255,255,0.3)" dataKey="date" />
-                    <YAxis stroke="rgba(255,255,255,0.3)" />
-                    <Tooltip contentStyle={{ backgroundColor: '#1a1a1a', border: '1px solid rgba(255,255,255,0.1)' }} />
-                    <Line type="monotone" dataKey="cost" stroke="#404040" />
-                  </LineChart>
-                </ResponsiveContainer>
+                <h3 className="text-lg font-semibold mb-6">Model Breakdown</h3>
+                <div className="space-y-4">
+                  {displayData.modelDistribution.map(m => (
+                    <div key={m.name} className="border-b border-gray-900 pb-4 last:border-0">
+                      <div className="flex justify-between items-start mb-2">
+                        <span className="font-semibold">{m.name}</span>
+                        <span className="text-gray-400 text-sm">{m.value}%</span>
+                      </div>
+                      <div className="text-sm text-gray-400 space-y-1">
+                        <div className="flex justify-between">
+                          <span>Sessions:</span>
+                          <span>{m.count}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Tokens:</span>
+                          <span>{(m.tokens / 1000000).toFixed(2)}M</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Cost:</span>
+                          <span>{symbol}{convert(m.cost)}</span>
+                        </div>
+                        <div className="flex justify-between pt-1 border-t border-gray-900">
+                          <span>Cost per 1K tokens:</span>
+                          <span className="font-mono">{symbol}{convert(parseFloat(m.costPerToken) * 1000)}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
 
-          {data.recentSessions && data.recentSessions.length > 0 && (
+          {displayData.recentSessions && displayData.recentSessions.length > 0 && (
             <div className="glass p-8 rounded-2xl">
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Recent Sessions</h3>
                   <p className="text-gray-400 text-sm">
-                    Your last 10 AI sessions showing when they occurred, which model was used, token count, and cost. Each row represents one complete interaction with your selected model. Click "View More" to see your entire session history.
+                    Your recent AI sessions showing when they occurred, which model was used, token count, and cost. Each row represents one complete interaction with your selected model.
                   </p>
                 </div>
               </div>
@@ -114,7 +155,7 @@ export default function Home() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.recentSessions.slice(0, 10).map((row, i) => (
+                  {displayData.recentSessions.slice(0, 10).map((row, i) => (
                     <tr key={i} className="border-b border-gray-900/30 hover:bg-gray-900/20 transition">
                       <td className="py-3 px-4">{row.date}</td>
                       <td className="py-3 px-4">{row.model}</td>
@@ -124,18 +165,20 @@ export default function Home() {
                   ))}
                 </tbody>
               </table>
-              <button 
-                onClick={() => setShowModal(true)} 
-                className="px-4 py-2 bg-gray-900 hover:bg-gray-800 rounded-lg transition font-medium"
-              >
-                View More ({data.recentSessions.length} total)
-              </button>
+              {displayData.recentSessions.length > 10 && (
+                <button 
+                  onClick={() => setShowModal(true)} 
+                  className="px-4 py-2 bg-gray-900 hover:bg-gray-800 rounded-lg transition font-medium"
+                >
+                  View More ({displayData.recentSessions.length} total)
+                </button>
+              )}
             </div>
           )}
         </div>
       </main>
 
-      <SessionModal sessions={data.recentSessions} isOpen={showModal} onClose={() => setShowModal(false)} />
+      <SessionModal sessions={displayData.recentSessions || []} isOpen={showModal} onClose={() => setShowModal(false)} />
     </>
   )
 }
